@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\keda\\Documents\\GitHub\\Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {}
+    "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\keda\\Documents\\GitHub\\Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {
+    "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\keda\\Documents\\GitHub\\Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+        "projectUniqueName": "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
         "projectName": "AncientPanda_Launcher",
-        "projectPath": "C:\\Users\\keda\\Documents\\GitHub\\Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
-        "packagesPath": "C:\\Users\\keda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\keda\\Documents\\GitHub\\Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
+        "projectPath": "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+        "packagesPath": "C:\\Users\\oriol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\keda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oriol\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

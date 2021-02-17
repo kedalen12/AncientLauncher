@@ -32,6 +32,7 @@
     <None Remove="images\GitHub.png" />
     <None Remove="images\LauncherLogo.ico" />
     <None Remove="images\settings.png" />
+    <None Remove="images\warning.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -79,6 +80,7 @@
     <Resource Include="images\Avatar.png" />
     <Resource Include="images\GitHub.png" />
     <Resource Include="images\settings.png" />
+    <Resource Include="images\warning.png" />
   </ItemGroup>
 
   <ItemGroup>

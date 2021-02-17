@@ -10,7 +10,7 @@ namespace AncientUpdater
 {
     internal class Program
     {
-        private const string title =
+        private const string Title =
             @"                           
  ____                     __              
 /\  _`\                  /\ \             
@@ -55,15 +55,15 @@ namespace AncientUpdater
             }
             File.Delete(System.IO.Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),
                 "GenerateShortCut.vbs"));
-            Console.WriteLine(title);
+            Console.WriteLine(Title);
             _installer = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "AncientLauncherInstaller.exe");
 
-                if (Directory.Exists(Path.Combine(Path.GetTempPath(), "ancient_temp")))
-                {
-                    DeleteDirectory(Path.Combine(Path.GetTempPath(), "ancient_temp"));
-                }
+            if (Directory.Exists(Path.Combine(Path.GetTempPath(), "ancient_temp")))
+            {
+                DeleteDirectory(Path.Combine(Path.GetTempPath(), "ancient_temp"));
+            }
 
-                //CHECK IF launcherConfig exists
+            //CHECK IF launcherConfig exists
                 if (File.Exists(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "launcherConfig.txt")))
                 {
                     var version =

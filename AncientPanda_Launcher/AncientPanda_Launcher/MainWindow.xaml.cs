@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Net.NetworkInformation;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -11,6 +13,12 @@ using System.Windows.Media;
 
 namespace AncientPanda_Launcher
 {
+    public enum ErrorCodes
+    {
+        DownloadEnd = 1,
+        FatalException,
+        Other
+    }
     enum LauncherState
     {
         ready,
@@ -103,19 +111,20 @@ namespace AncientPanda_Launcher
 
         }
 
-
+        public WebClient downloadClient;
         private void InstallGameFiles(bool isUpdate, Version _newVersion)
         {
             try
             {
-                var webClient = new WebClient();
+             
+                downloadClient = new WebClient();
                 CurrentState = isUpdate ? LauncherState.downloadingUpdate : LauncherState.downloadingGame;
                 if (!isUpdate)
                 {
                     _newVersion = new Version(Constants.newVer);
                 }
-                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadComplete);
-                webClient.DownloadProgressChanged += (s, e) =>
+                downloadClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadComplete);
+                downloadClient.DownloadProgressChanged += (s, e) =>
                 {
                     DownloadBar.Visibility = Visibility.Visible;
                     DownloadTxt.Visibility = Visibility.Visible;
@@ -124,7 +133,8 @@ namespace AncientPanda_Launcher
                     DownloadBar.Value = e.ProgressPercentage;
                     DownloadTxt.Content = $"{ e.ProgressPercentage}%";
                 };
-                webClient.DownloadFileAsync(new Uri(Constants.onlineZip), gameZip, _newVersion);
+                downloadClient.DownloadFileAsync(new Uri(Constants.onlineZip), gameZip, _newVersion);
+                isDownloading = true;
             }
             catch (Exception ex)
             {
@@ -133,30 +143,54 @@ namespace AncientPanda_Launcher
             }
 
         }
+        public ZipArchive zip;
 
         public Progress<ZipProgress> _progress;
         private void ExtractZip()
         {
             WebClient wc = new WebClient();
             Stream zipReadingStream = wc.OpenRead(gameZip);
-            ZipArchive zip = new ZipArchive(zipReadingStream);
+            zip = new ZipArchive(zipReadingStream);
             zip.ExtractToDirectory(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "AnimalWar_Game"), _progress);
             zip.Dispose();
         }
 
+        private bool Disposed;
         private async void DownloadComplete(object sender, AsyncCompletedEventArgs e)
         {
             try
             {
-                DownloadTxt.Visibility = Visibility.Hidden;
-                string onlineVersionDownloaded = ((Version)e.UserState).ToString();
-                await Task.Run(() => ExtractZip());
-                Properties.Settings.Default.version = onlineVersionDownloaded;
-                Properties.Settings.Default.Save();
-                File.Delete(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Build.zip"));
-                CurrentState = LauncherState.ready;
-                DownloadAmount.Visibility = Visibility.Hidden;
-                DownloadBar.Visibility = Visibility.Hidden;
+                if (e.Cancelled)
+                {
+                    downloadClient.Dispose();
+                    downloadClient.Disposed += (sender, eventArgs) =>
+                    {
+                        File.Delete(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Build.zip"));
+                        if (Logout)
+                        {
+                            Properties.Settings.Default.username = null;
+                            Properties.Settings.Default.password = null;
+                            Properties.Settings.Default.Save();
+                            var loginWindow = new LoginWindow();
+                            loginWindow.Show();
+                            this.Close();
+                        }
+                    };
+                    downloadClient = null;
+                }
+                else
+                {
+                    DownloadTxt.Visibility = Visibility.Hidden;
+                    string onlineVersionDownloaded = ((Version)e.UserState).ToString();
+                    await Task.Run(() => ExtractZip());
+                    Properties.Settings.Default.version = onlineVersionDownloaded;
+                    Properties.Settings.Default.Save();
+                    File.Delete(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Build.zip"));
+                    CurrentState = LauncherState.ready;
+                    DownloadAmount.Visibility = Visibility.Hidden;
+                    DownloadBar.Visibility = Visibility.Hidden;
+                    isDownloading = false;
+                }
             }
             catch (Exception ex)
             {
@@ -207,7 +241,7 @@ namespace AncientPanda_Launcher
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
         void CallOnExit(object sender, System.EventArgs e)
         {
@@ -220,19 +254,41 @@ namespace AncientPanda_Launcher
             if (e.Key == System.Windows.Input.Key.Enter)
             {
                 Constants.ServerIpAddress = ipConfig.Text;
-                ipConfig.Visibility = Visibility.Hidden;
-                Properties.Settings.Default.ip = ipConfig.Text;
+                Ping pingSender = new Ping();
+                PingOptions options = new PingOptions();
+                string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                byte[] buffer = Encoding.ASCII.GetBytes(data);
+                PingReply reply = pingSender.Send(ipConfig.Text, 100, buffer, options);
+                if (reply.Status == IPStatus.Success)
+                {
+                    Properties.Settings.Default.ip = ipConfig.Text;
+                    Properties.Settings.Default.Save();
+                } else
+                {
+                    MessageBox.Show("Invalid Ip");
+                }
+
+                
             }
         }
 
+        private bool isDownloading = false;
+
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.username = null;
-            Properties.Settings.Default.password = null;
-            Properties.Settings.Default.Save();
-            var loginWindow = new LoginWindow();
-            loginWindow.Show();
-            this.Close();
+            if (isDownloading)
+            {
+                ShowCustomError("You cannot logout while a download is in progress...", "Cancel Download", "Continue Download", ErrorCodes.DownloadEnd);
+            }
+            else
+            {
+                Properties.Settings.Default.username = null;
+                Properties.Settings.Default.password = null;
+                Properties.Settings.Default.Save();
+                var loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
         }
 
 
@@ -264,7 +320,6 @@ namespace AncientPanda_Launcher
                 Mouse.OverrideCursor = Cursors.Hand;
             var bc = new BrushConverter();
             PlayBtn.Fill = (Brush)bc.ConvertFrom("#FF06D6D6");
-
         }
 
 
@@ -340,18 +395,61 @@ namespace AncientPanda_Launcher
 
         }
 
+        private Action customAction;
+        private Action okAction;
+
+        private void PerformWarningCustomAction_MouseDown (object sender, MouseButtonEventArgs e)
+        {
+            customAction?.Invoke();
+        }
+        private void PerformWarningOkAction_MouseDown (object sender, MouseButtonEventArgs e)
+        {
+            okAction?.Invoke();
+        }
         private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var ps = Process.GetProcessesByName("AnimalWar.exe");
-            if(ps.Length != 0)
+            if (ps.Length != 0)
             {
-                foreach(var game in ps)
+                foreach (var game in ps)
                 {
                     game.Kill();
                 }
             }
             System.Windows.Application.Current.Shutdown();
         }
+        public void ShowCustomError(string Error, string CustomBtnText, string OkBtnTxt, ErrorCodes ErrorCode)
+        {
+            customAction = null;
+            okAction = null;
+            OkActionWarningBtn.Content = OkBtnTxt;
+            ErrorContentTxt.Text = Error;
+            ErrorGrid.Visibility = Visibility.Visible;
+            switch (ErrorCode)
+            {
+                case ErrorCodes.DownloadEnd:
+                    okAction = ContinueDownloading;
+                    break;
+                case ErrorCodes.FatalException:
+                    break;
+                case ErrorCodes.Other:
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        #region ErrorVoids
+        private bool Logout = false;
+        private void ContinueDownloading()
+        {
+            ErrorGrid.Visibility = Visibility.Hidden;
+        }
+
+        #endregion
+
+
 
         private void MinimizeOverride_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -384,21 +482,19 @@ namespace AncientPanda_Launcher
             {
 
             }
-           
+
         }
 
         private void LaunchGitHub_MouseEnter(object sender, MouseEventArgs e)
         {
             if (this.Cursor != Cursors.Wait)
                 Mouse.OverrideCursor = Cursors.Hand;
-            
+
         }
 
         private void LaunchGitHub_MouseLeave(object sender, MouseEventArgs e)
         {
             Mouse.OverrideCursor = Cursors.Arrow;
-
-            
         }
     }
 }

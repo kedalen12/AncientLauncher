@@ -26,7 +26,9 @@ namespace AncientPanda_Launcher
         {
 
             var duplicates = System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location));
-            if(duplicates.Length != 1)
+            File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "Build.zip"));
+
+            if (duplicates.Length != 1)
             {
                 MessageBoxResult result = CustomMessageBox.ShowOK(
                     $"{duplicates.Length} Instances of the launcher where found! \nAll instances (including this) will be terminated, you may relaunch!",
