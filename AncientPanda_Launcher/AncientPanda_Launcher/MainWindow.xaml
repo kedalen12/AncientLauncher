@@ -1,0 +1,89 @@
+﻿<Window x:Class="AncientPanda_Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:eo="http://schemas.essentialobjects.com/wpf/"
+        xmlns:local="clr-namespace:AncientPanda_Launcher"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ContentRendered="Window_ContentRendered"
+        Title="AncientPanda Games" Height="450" Width="800">
+    <Window.Resources>
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF118AB2" Offset="1"/>
+                <GradientStop Color="#FF073B4C" Offset="0.004"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Name ="VersionTxt" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="20" Text="2.0.0" Foreground="White" Margin="0,0,3,0"/>
+        <ProgressBar Name="DownloadBar" Value="50" Margin="228,381,35,63" Background="White" Visibility="Hidden" BorderBrush="{x:Null}" Foreground="#FFFFD166"/>
+        <Label HorizontalContentAlignment="Right" Visibility="Hidden" Content="100%" Name="DownloadTxt" VerticalContentAlignment="Top" Margin="228,358,0,0" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" FontWeight="Bold" HorizontalAlignment="Left" Width="537" Height="23" VerticalAlignment="Top"/>
+        <Label Name="DownloadAmount" Visibility="Hidden" Content="0 of 1024mb" VerticalContentAlignment="Top" Margin="228,388,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" Height="25" FontWeight="Light" HorizontalAlignment="Left" Width="537" FontFamily="Poppins SemiBold"/>
+        <Rectangle   x:Name="PlayBtn" HorizontalAlignment="Left" Height="50" Margin="17,381,0,0" VerticalAlignment="Top" Width="206" RadiusX="25" RadiusY="25" Fill="#FF06D6A0"></Rectangle>
+        <Label MouseEnter="StateTxt_MouseEnter" MouseLeave="StateTxt_MouseLeave"  MouseDown="Rectangle_MouseDown" Name="StateTxt" Content="Downloading" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="17,381,0,0" VerticalAlignment="Top" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" Height="50" FontWeight="Bold" HorizontalAlignment="Left" Width="206" FontFamily="Poppins Black" FontSize="23"/>
+        <Rectangle Name="DragBar" MouseDown="DragBar_MouseDown" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="804" Fill="#33000000"/>
+        <Ellipse x:Name="CloseOverride" MouseEnter="Ellipse_MouseEnter" MouseLeave="Ellipse_MouseLeave" MouseDown="Ellipse_MouseDown" HorizontalAlignment="Left" Height="20" Margin="770,5,0,0" VerticalAlignment="Top" Width="20">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB41919"/>
+                    <GradientStop Color="#FF971717" Offset="1"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse x:Name="MinimizeOverride" MouseEnter="Ellipse_MouseEnter"  MouseLeave="Ellipse_MouseLeave"  MouseDown="MinimizeOverride_MouseDown"  HorizontalAlignment="Left" Height="20" Margin="741,5,0,0" VerticalAlignment="Top" Width="20">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFADB419"/>
+                    <GradientStop Color="#FF8B9717" Offset="1"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Grid Visibility="Hidden" Name="SettingsMenu" Margin="-10,-13,10,13">
+            <Rectangle   x:Name="PlayBtn_Copy" Margin="10,43,584,212" Fill="#35000000"/>
+            <Label Content="Settings" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,42,0,0" VerticalAlignment="Top" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" Height="50" FontWeight="Bold" HorizontalAlignment="Left" Width="206" FontFamily="Poppins Black" FontSize="23"/>
+            <TextBox  Name ="ipConfig" Visibility="Visible" PreviewKeyDown="ipConfig_PreviewKeyDown" HorizontalAlignment="Left" Text="255.255.255.255" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="154" Template="{StaticResource TextBoxBaseControlTemplate}" Height="24" Margin="36,113,0,0" FontFamily="Poppins"></TextBox>
+            <Label Content="Server Ip" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,684,337" VerticalAlignment="Bottom" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" Height="26" FontWeight="Bold" FontFamily="Poppins Black" FontSize="13" HorizontalAlignment="Right" Width="80"/>
+            <Button VerticalContentAlignment="Top" VerticalAlignment="Top" Content="Logout" Name="LogoutVis" Visibility="Visible" Click="Logout_Click" HorizontalAlignment="Left" FontFamily="Poppins" FontWeight="ExtraBlack" Margin="76,207,0,0"  Width="69" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFDA0B0B" FontSize="15" Height="28"/>
+            <TextBox  x:Name ="ipConfig_Copy" Visibility="Visible" PreviewKeyDown="ipConfig_PreviewKeyDown" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="154" Template="{StaticResource TextBoxBaseControlTemplate}" Height="26" Margin="36,167,0,0" FontFamily="Poppins"/>
+            <Label Content="Arguments" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="36,0,0,277" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" FontWeight="Bold" HorizontalAlignment="Left" Width="90" FontFamily="Poppins Black" FontSize="13" Height="30" VerticalAlignment="Bottom"/>
+        </Grid>
+        <Rectangle Name="ConfigSett_Btn" MouseEnter="Ellipse_MouseEnter" MouseLeave="Ellipse_MouseLeave"  MouseDown="ConfigSett_Btn_MouseDown" HorizontalAlignment="Left" Height="25" Margin="10,2,0,0" VerticalAlignment="Top" Width="25" RenderTransformOrigin="32.65,-0.2">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/images/Avatar.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Label x:Name="UserLabel" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="0,0,502,423" Foreground="White" FontFamily="Poppins ExtraBold" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="263" Height="30" VerticalAlignment="Bottom"/>
+        <Ellipse Name="LaunchGitHub" MouseEnter="LaunchGitHub_MouseEnter"  MouseLeave="LaunchGitHub_MouseLeave"  MouseDown="LaunchGitHub_MouseDown" HorizontalAlignment="Left" Height="32" Margin="715,420,0,0" VerticalAlignment="Top" Width="32">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="/images/GitHub.png"/>
+            </Ellipse.Fill>
+        </Ellipse>
+    </Grid>
+</Window>
