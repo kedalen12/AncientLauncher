@@ -71,7 +71,7 @@
                 </LinearGradientBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <Grid Visibility="Visible" Name="SettingsMenu" Margin="-10,-13,10,13">
+        <Grid Visibility="Hidden" Name="SettingsMenu" Margin="-10,-13,10,13">
             <Rectangle   x:Name="PlayBtn_Copy" Margin="10,43,584,212" Fill="#35000000"/>
             <Label Content="Settings" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,42,0,0" VerticalAlignment="Top" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" Height="50" FontWeight="Bold" HorizontalAlignment="Left" Width="206" FontFamily="Poppins Black" FontSize="23"/>
             <TextBox  Name ="ipConfig" Visibility="Visible" PreviewKeyDown="ipConfig_PreviewKeyDown" HorizontalAlignment="Left" Text="255.255.255.255" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="154" Template="{StaticResource TextBoxBaseControlTemplate}" Height="24" Margin="36,113,0,0" FontFamily="Poppins"></TextBox>
@@ -109,7 +109,7 @@
                 </Rectangle.Fill>
             </Rectangle>
             <Label MouseEnter="StateTxt_MouseEnter" MouseLeave="StateTxt_MouseLeave"  MouseDown="PerformWarningOkAction_MouseDown"  Name="OkActionWarningBtn" Content="OK" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,296,0,0" VerticalAlignment="Top" Foreground="#FFF4F1DE" RenderTransformOrigin="0.497,0.125" Height="29" FontWeight="Bold" HorizontalAlignment="Center" Width="440" FontFamily="Poppins Black" FontSize="15"/>
-            <TextBlock HorizontalAlignment="Center"  Name="ErrorContentTxt" Margin="0,202,0,0" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA." TextWrapping="Wrap" VerticalAlignment="Top" Width="412" Height="91" FontFamily="Poppins" FontSize="15" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center"  Name="ErrorContentTxt" Margin="0,202,0,0" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA." TextWrapping="Wrap" VerticalAlignment="Top" Width="412" Height="91" FontFamily="Poppins" FontSize="15" Foreground="White"/>
 
         </Grid>
     </Grid>

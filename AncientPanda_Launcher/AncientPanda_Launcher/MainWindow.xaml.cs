@@ -5,8 +5,10 @@ using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -25,7 +27,8 @@ namespace AncientPanda_Launcher
         failed,
         downloadingGame,
         downloadingUpdate,
-        running
+        running,
+        serverOffline
     }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -63,6 +66,9 @@ namespace AncientPanda_Launcher
                         StateTxt.Content = "Running";
 
                         break;
+                    case LauncherState.serverOffline:
+                        StateTxt.Content = "Offline";
+                        break;
                     default:
                         break;
                 }
@@ -71,6 +77,7 @@ namespace AncientPanda_Launcher
 
         private void CheckForUpdates()
         {
+
 
             if (File.Exists(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "AnimalWar_Game", "AnimalWar.exe")))
             {
@@ -94,7 +101,7 @@ namespace AncientPanda_Launcher
                     catch (Exception ex)
                     {
                         CurrentState = LauncherState.failed;
-                        MessageBox.Show($"Error while checking for updates {ex}");
+                        ShowCustomError($"Error while fetching updates\n{ex}", "", "Ok :(", ErrorCodes.Other);
                     }
                 }
                 else
@@ -139,7 +146,7 @@ namespace AncientPanda_Launcher
             catch (Exception ex)
             {
                 CurrentState = LauncherState.failed;
-                MessageBox.Show($"Error while downloading {ex}");
+                ShowCustomError($"Error while downloading\n{ex}","", "Ok :(", ErrorCodes.Other);
             }
 
         }
@@ -195,7 +202,8 @@ namespace AncientPanda_Launcher
             catch (Exception ex)
             {
                 CurrentState = LauncherState.failed;
-                MessageBox.Show($"Error while copying files {ex}");
+                ShowCustomError($"Fatal exception during installation\n{ex}","","Ok :(", ErrorCodes.Other);
+              
             }
         }
 
@@ -207,9 +215,11 @@ namespace AncientPanda_Launcher
 
         public MainWindow()
         {
+
             _progress = new Progress<ZipProgress>();
             _progress.ProgressChanged += Report;
             InitializeComponent();
+    
             if (File.Exists(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Build.zip")))
             {
                 File.Delete(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Build.zip"));
@@ -220,11 +230,40 @@ namespace AncientPanda_Launcher
             Constants.ServerIpAddress = Properties.Settings.Default.ip;
             ipConfig.Text = Constants.ServerIpAddress;
         }
-
+        private bool isConnecting = false;
+        public async Task SocketConnect()
+        {
+            isConnecting = true;
+            StateTxt.Content = "Connecting...";
+            var tcpClient = new TcpClient();
+                try
+                {
+                    await tcpClient.ConnectAsync(Properties.Settings.Default.ip, 27017);
+                if (tcpClient.Connected)
+                {
+                    CheckForUpdates();
+                } else
+                {
+                    throw new Exception("Offline");
+                }
+                }
+                catch (Exception ex)
+                {
+                    CurrentState = LauncherState.serverOffline;
+                }
+            tcpClient.Close();
+            tcpClient.Dispose();
+            tcpClient = null;
+            isConnecting = false;
+        }
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             UserLabel.Content = Constants.Username.ToUpper();
-            CheckForUpdates();
+            if (IsIPAddress(Properties.Settings.Default.ip))
+            {
+                //Verify that we have a valid ip saved
+                SocketConnect();
+            }
         }
         private void StartGame()
         {
@@ -253,25 +292,50 @@ namespace AncientPanda_Launcher
         {
             if (e.Key == System.Windows.Input.Key.Enter)
             {
-                Constants.ServerIpAddress = ipConfig.Text;
-                Ping pingSender = new Ping();
-                PingOptions options = new PingOptions();
-                string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-                byte[] buffer = Encoding.ASCII.GetBytes(data);
-                PingReply reply = pingSender.Send(ipConfig.Text, 100, buffer, options);
-                if (reply.Status == IPStatus.Success)
+                if (IsIPAddress(ipConfig.Text))
                 {
                     Properties.Settings.Default.ip = ipConfig.Text;
                     Properties.Settings.Default.Save();
                 } else
                 {
-                    MessageBox.Show("Invalid Ip");
+                    var defaultIp = "";
+                    if (string.IsNullOrEmpty(Properties.Settings.Default.ip))
+                    {
+                        defaultIp = "127.0.0.1";
+                    } else if(Properties.Settings.Default.ip.ToLower() != ipConfig.Text.ToLower())
+                    {
+                        defaultIp = Properties.Settings.Default.ip;
+                    } else
+                    {
+                        defaultIp = "127.0.0.1";
+                    }
+                    ShowCustomError($"The provided ip {ipConfig.Text} is not a valid IP\nThe ip field will fallback to {defaultIp}", "", "Ok", ErrorCodes.Other);
+                    Properties.Settings.Default.ip = defaultIp;
+                    ipConfig.Text = defaultIp;
+                    Properties.Settings.Default.Save();
+                    Keyboard.ClearFocus();
+                    SettingsMenu.Visibility = Visibility.Hidden;
                 }
 
-                
             }
         }
 
+        private bool IsIPAddress(string ipAddress)
+        {
+            bool retVal = false;
+
+            try
+            {
+                IPAddress address;
+                retVal = IPAddress.TryParse(ipAddress, out address);
+            }
+            catch (Exception ex)
+            {
+                ShowCustomError($"Error while trying to parse the Ip {ipAddress}", "", "Ok", ErrorCodes.Other);
+
+            }
+            return retVal;
+        }
         private bool isDownloading = false;
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -294,17 +358,51 @@ namespace AncientPanda_Launcher
 
         private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (File.Exists(gameExe) && CurrentState == LauncherState.ready && currentGame == null)
+            if (CurrentState == LauncherState.serverOffline) {
+                if (!isConnecting)
+                {
+                    SocketConnect();
+                }
+            } else if (File.Exists(gameExe) && CurrentState == LauncherState.ready && currentGame == null)
             {
-                StartGame();
+                SocketConnect(StartGame);   
             }
             else if (CurrentState == LauncherState.failed)
             {
                 CheckForUpdates();
-            } else
+
+            }
+            else
             {
                 CheckForUpdates();
+            } 
+        }
+
+        private async Task SocketConnect(Action startGame)
+        {
+            isConnecting = true;
+            var tcpClient = new TcpClient();
+            try
+            {
+                await tcpClient.ConnectAsync(Properties.Settings.Default.ip, 27017);
+                if (tcpClient.Connected)
+                {
+                    startGame.Invoke();
+                }
+                else
+                {
+                    throw new Exception("Offline");
+                }
             }
+            catch (Exception ex)
+            {
+                ShowCustomError("The server you are trying to connect to is currently Offline", "", "Ok :(", ErrorCodes.Other);
+                CurrentState = LauncherState.serverOffline;
+            }
+            tcpClient.Close();
+            tcpClient.Dispose();
+            tcpClient = null;
+            isConnecting = false;
         }
 
         private void StateTxt_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
@@ -433,11 +531,16 @@ namespace AncientPanda_Launcher
                 case ErrorCodes.FatalException:
                     break;
                 case ErrorCodes.Other:
+                    okAction = HideMessage;
                     break;
                 default:
                     break;
             }
 
+        }
+        private void HideMessage()
+        {
+            ErrorGrid.Visibility = Visibility.Hidden;
         }
 
         #region ErrorVoids
@@ -473,14 +576,22 @@ namespace AncientPanda_Launcher
         {
             try
             {
+                var openUpdaters = Process.GetProcessesByName("AncientUpdater.exe");
+                if(openUpdaters.Length != 0)
+                {
+                    foreach (var updater in openUpdaters)
+                    {
+                        updater.Kill();
+                    }
+                }
                 var prs = new Process();
                 prs.StartInfo.FileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "AncientUpdater.exe");
                 prs.StartInfo.Arguments = "-launchweb https://github.com/Ancient-Panda-Studio/AnimalWARS";
                 prs.Start();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                ShowCustomError($"Could not launch https://github.com/Ancient-Panda-Studio/AnimalWARS\n{ex}","", "Ok :(", ErrorCodes.Other);
             }
 
         }
