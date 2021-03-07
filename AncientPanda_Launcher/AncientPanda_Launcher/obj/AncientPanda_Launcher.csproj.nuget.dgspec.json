@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {}
+    "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {
+    "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+        "projectUniqueName": "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
         "projectName": "AncientPanda_Launcher",
-        "projectPath": "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
-        "packagesPath": "C:\\Users\\oriol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oriol\\Documents\\GitHub\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
+        "projectPath": "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+        "packagesPath": "C:\\Users\\work\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\oriol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

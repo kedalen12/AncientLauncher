@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
@@ -19,9 +20,9 @@ namespace AncientPanda_Launcher
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private string ipServerAddress = "http://34.76.253.250/";
+        private string ipServerAddress = "http://34.105.202.247/";
         private Process updateProcess = null;
-        private string sqlAddress = $"http://34.76.253.250/sqlconnect/login.php";
+        private string sqlAddress = $"http://34.105.202.247/sqlconnect/login.php";
         public LoginWindow()
         {
 
@@ -73,7 +74,7 @@ namespace AncientPanda_Launcher
                 {
                     var result = CustomMessageBox.ShowOKCancel(
                         "AncientUpdater.exe was not found in your system... This will prevent the execution of the launcher\n You may download it by pressing 'Download'",
-                        "Exception Raise #77 AncientUpdater.exe not found!",
+                        "Fatal Exception AncientUpdater not Found!",
                         "Download",
                         "Exit");
                     if (result == MessageBoxResult.Cancel)
@@ -102,21 +103,12 @@ namespace AncientPanda_Launcher
 
         private void GetData()
         {
-            var data = Get("http://34.76.253.250:3000/version");
-            data = data.Replace("{", "").ToString().Replace("\"", "").ToString().Replace("}", "");
-            var splitVersionString = data.Split(',');
-            foreach (var currentString in splitVersionString)
-            {
-                if (!currentString.Contains("animal")) continue;
-                var str = currentString.Split(':')[1];
-                if (str.Contains("|"))
-                {
-                    Constants.onlineZip = str.Replace('|', ':');
-                    continue;
-                }
-                Constants.newVer = str;
-            }
-
+            var versionData = Get("http://34.105.202.247:3000/animal");
+            var downloadUrlData = Get("http://34.105.202.247:3000/animal/url");
+            var version = Regex.Replace(versionData, @"[\""]", "", RegexOptions.None).ToString();
+            var downloadUrl = Regex.Replace(downloadUrlData, @"[\""]", "", RegexOptions.None).ToString();
+            Constants.onlineZip = downloadUrl;
+            Constants.newVer = version;
         }
 
         private void BlockWhileUpdate()

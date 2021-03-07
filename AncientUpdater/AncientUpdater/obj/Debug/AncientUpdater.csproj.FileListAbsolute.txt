@@ -16,3 +16,9 @@ C:\Users\keda\Documents\GitHub\Launcher\AncientUpdater\AncientUpdater\obj\Debug\
 C:\Users\keda\Documents\GitHub\Launcher\AncientUpdater\AncientUpdater\obj\Debug\AncientUpdater.csproj.CoreCompileInputs.cache
 C:\Users\keda\Documents\GitHub\Launcher\AncientUpdater\AncientUpdater\obj\Debug\AncientUpdater.exe
 C:\Users\keda\Documents\GitHub\Launcher\AncientUpdater\AncientUpdater\obj\Debug\AncientUpdater.pdb
+C:\Users\work\AncientLauncher\AncientUpdater\AncientUpdater\bin\Debug\AncientUpdater.exe
+C:\Users\work\AncientLauncher\AncientUpdater\AncientUpdater\bin\Debug\AncientUpdater.pdb
+C:\Users\work\AncientLauncher\AncientUpdater\AncientUpdater\obj\Debug\AncientUpdater.csprojAssemblyReference.cache
+C:\Users\work\AncientLauncher\AncientUpdater\AncientUpdater\obj\Debug\AncientUpdater.csproj.CoreCompileInputs.cache
+C:\Users\work\AncientLauncher\AncientUpdater\AncientUpdater\obj\Debug\AncientUpdater.exe
+C:\Users\work\AncientLauncher\AncientUpdater\AncientUpdater\obj\Debug\AncientUpdater.pdb

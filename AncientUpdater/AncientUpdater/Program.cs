@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.IO.Compression;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace AncientUpdater
 {
@@ -173,9 +174,9 @@ namespace AncientUpdater
         {
             try
             {
-                Console.WriteLine("Begining check for update");
                 var webClient = new WebClient();
-                var onlineVer = Get("http://34.76.253.250:3000/version");
+                var onlineVer = Get("http://34.105.202.247:3000/launcher");
+                Console.WriteLine(onlineVer);
                 if (onlineVer == null)
                 {
                     Console.WriteLine("Fatal exception... You may use current Launcher Version if it is installed...");
@@ -183,26 +184,11 @@ namespace AncientUpdater
                 }
                 else
                 {
-                    onlineVer = onlineVer.Replace("{", "").ToString().Replace("\"", "").ToString().Replace("}", "");
-                    var splitVersionString = onlineVer.Split(',');
-                    foreach (var currentString in splitVersionString)
-                    {
-                        if (!currentString.Contains("launcher")) continue;
-                        var str = currentString.Split(':')[1];
-                        if (str.Contains("|"))
-                        {
-                            _onlineZip = str.Replace('|', ':');
-                            continue;
-                        }
-
-                        onlineVer = str;
-                        continue;
-                    }
-
-                    if (currentVersion != onlineVer)
+                    var  onlineVerTxt = Regex.Replace(onlineVer, @"[\""]", "", RegexOptions.None).ToString();
+                    if (currentVersion != onlineVerTxt)
                     {
                         Console.WriteLine("New versions Found -> current is {0} new  is -> {1}", currentVersion,
-                            onlineVer);
+                            onlineVerTxt);
                         Console.Write("Do you want to install the latest update Y/N ");
                         var s = Console.ReadLine();
                         if (s.Contains("Y") || s.Contains("y"))
