@@ -174,7 +174,7 @@ namespace AncientUpdater
             try
             { 
                 var onlineVer = Get("http://34.105.202.247:3000/launcher");
-                Console.WriteLine(onlineVer);
+                var mandatory = Get("http://34.105.202.247:3000/launcher/mandatory");
                 if (onlineVer == null)
                 {
                     Console.WriteLine("Fatal exception... You may use current Launcher Version if it is installed...");
@@ -183,20 +183,29 @@ namespace AncientUpdater
                 else
                 {
                     var  onlineVerTxt = Regex.Replace(onlineVer, @"[\""]", "", RegexOptions.None).ToString();
+                    var  mandatoryTxt = Regex.Replace(mandatory, @"[\""]", "", RegexOptions.None).ToString();
                     if (currentVersion != onlineVerTxt)
                     {
                         Console.WriteLine("New versions Found -> current is {0} new  is -> {1}", currentVersion,
                             onlineVerTxt);
-                        Console.Write("Do you want to install the latest update Y/N ");
-                        var s = Console.ReadLine();
-                        if (s.Contains("Y") || s.Contains("y"))
+                        if (mandatoryTxt.Contains("y"))
                         {
+                            Console.WriteLine("Version {0} is a mandatory release. Installing...", onlineVer);
                             DownloadFile();
                         }
                         else
                         {
-                            Console.WriteLine("Update canceled exiting...");
-                            Environment.Exit(0);
+                            Console.Write("Do you want to install the latest update Y/N ");
+                            var s = Console.ReadLine();
+                            if (s.Contains("Y") || s.Contains("y"))
+                            {
+                                DownloadFile();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Update canceled exiting...");
+                                Environment.Exit(0);
+                            }
                         }
                     }
                     else
