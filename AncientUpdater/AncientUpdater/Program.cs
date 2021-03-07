@@ -100,7 +100,6 @@ namespace AncientUpdater
 
                     }
                 }
-
                 while (!_update.InstallationDone)
                 {
                     Thread.Sleep(1000);
@@ -173,8 +172,7 @@ namespace AncientUpdater
         private void CheckForUpdates(string currentVersion)
         {
             try
-            {
-                var webClient = new WebClient();
+            { 
                 var onlineVer = Get("http://34.105.202.247:3000/launcher");
                 Console.WriteLine(onlineVer);
                 if (onlineVer == null)
