@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CsezKgI20nuJ1udkVhTSIw+ZS0aCAnB/nJZKxfYrin+GK/iCvaqgaksCw95ArQLeLIAqXfdIFxfusIeCd3HjzQ==",
+  "dgSpecHash": "hItjvcXbjUuHf0BdPdQE1BbxsDn+Ls9kCXDQT6q9bMU0l1TesNtbBDeRy36eVf0YRpU6NaXxXN4BPIPMqRhjug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+  "projectFilePath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\work\\.nuget\\packages\\eo.webbrowser\\21.0.18\\eo.webbrowser.21.0.18.nupkg.sha512",
     "C:\\Users\\work\\.nuget\\packages\\eo.webbrowser.wpf\\21.0.18\\eo.webbrowser.wpf.21.0.18.nupkg.sha512",

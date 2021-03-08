@@ -275,6 +275,10 @@ namespace AncientPanda_Launcher
             process.Exited += new EventHandler(CallOnExit);
             process.Start();
             currentGame = process;
+            this.Dispatcher.Invoke(() =>
+            {
+                CurrentState = LauncherState.running;
+            });
 
         }
 
@@ -285,6 +289,10 @@ namespace AncientPanda_Launcher
         void CallOnExit(object sender, System.EventArgs e)
         {
             currentGame = null;
+            this.Dispatcher.Invoke(() =>
+            {
+                CurrentState = LauncherState.ready;
+            });
         }
 
 
@@ -358,6 +366,9 @@ namespace AncientPanda_Launcher
 
         private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (CurrentState == LauncherState.running) return;
+            if (CurrentState == LauncherState.downloadingGame) return;
+            if (CurrentState == LauncherState.downloadingUpdate) return;
             if (CurrentState == LauncherState.serverOffline) {
                 if (!isConnecting)
                 {

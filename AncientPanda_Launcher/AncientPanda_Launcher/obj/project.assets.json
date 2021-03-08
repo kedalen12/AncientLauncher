@@ -343,11 +343,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+      "projectUniqueName": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
       "projectName": "AncientPanda_Launcher",
-      "projectPath": "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+      "projectPath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
       "packagesPath": "C:\\Users\\work\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\work\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
+      "outputPath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\work\\AppData\\Roaming\\NuGet\\NuGet.Config",
