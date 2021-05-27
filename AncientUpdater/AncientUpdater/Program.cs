@@ -4,8 +4,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.IO.Compression;
+using System.Reflection;
 using System.Threading;
 using System.Text.RegularExpressions;
+using IWshRuntimeLibrary;
+using File = System.IO.File;
 
 namespace AncientUpdater
 {
@@ -54,8 +57,6 @@ namespace AncientUpdater
                     return;
                 }
             }
-            File.Delete(System.IO.Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),
-                "GenerateShortCut.vbs"));
             Console.WriteLine(Title);
             _installer = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "AncientLauncherInstaller.exe");
 
@@ -173,8 +174,8 @@ namespace AncientUpdater
         {
             try
             { 
-                var onlineVer = Get("http://34.105.202.247:3000/launcher");
-                var mandatory = Get("http://34.105.202.247:3000/launcher/mandatory");
+                var onlineVer = Get("http://34.105.191.206:3000/launcher");
+                var mandatory = Get("http://34.105.191.206:3000/launcher/mandatory");
                 if (onlineVer == null)
                 {
                     Console.WriteLine("Fatal exception... You may use current Launcher Version if it is installed...");
@@ -261,13 +262,12 @@ namespace AncientUpdater
             {
                 Console.WriteLine($"Installing AncientLauncher ...");
                 ZipFile.ExtractToDirectory(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "AncientLauncher.zip"),
-                    Path.Combine(Path.GetTempPath(), "ancient_temp"));
-                foreach (var newPath in Directory.GetFiles(Path.Combine(Path.GetTempPath(), "ancient_temp"), "*.*", 
-                    SearchOption.AllDirectories))
-                    File.Copy(newPath, newPath.Replace(Path.Combine(Path.GetTempPath(), "ancient_temp"), Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)), true);
-                Console.WriteLine($"Cleaning Installation ... \n");
+                    Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location));
                 File.Delete(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "AncientLauncher.zip"));
-                DeleteDirectory(Path.Combine(Path.GetTempPath(), "ancient_temp"));
+                /*foreach (var newPath in Directory.GetFiles(Path.Combine(Path.GetTempPath(), "ancient_temp"), "*.*", 
+                    SearchOption.AllDirectories))
+                    File.Copy(newPath, newPath.Replace(Path.Combine(Path.GetTempPath(), "ancient_temp"), Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)), true);*/
+                Console.WriteLine($"Cleaning Installation ... \n");
                 Console.WriteLine("Creating desktop shortcut...");
                 AppShortcutToDesktop("AncientLauncher");
                 Console.WriteLine($"Installation successful... \n");
@@ -282,14 +282,16 @@ namespace AncientUpdater
         }
         public void AppShortcutToDesktop(string linkName)
         {
-            File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                "AncientLauncher.lnk"));
-            using (StreamWriter sw = new StreamWriter(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "GenerateShortCut.vbs"), false))
-            {
-                sw.WriteLine("Dim WshShell\nSet WshShell = CreateObject(\"Wscript.shell\")\nDim strDesktop \nstrDesktop= WshShell.SpecialFolders(\"Desktop\")\nDim oMyShortcut\nSet oMyShortcut = WshShell.CreateShortcut(strDesktop + \"\\AncientLauncher.lnk\")\nOMyShortcut.TargetPath = \"\" + WshShell.CurrentDirectory + \"\\AncientPanda_Launcher.exe\"\noMyShortCut.Save\nSet WshShell= Nothing\nSet oMyShortcut= Nothing");
-            }
-            System.Diagnostics.Process.Start(System.IO.Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),
-            "GenerateShortCut.vbs"));
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                "AncientLauncher.lnk");
+            var wsh = new IWshShell_Class();
+            IWshShortcut shortcut = wsh.CreateShortcut(
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\AncientPanda_Launcher.lnk") as IWshShortcut;
+            shortcut.TargetPath =
+                Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                    "AncientPanda_Launcher.exe");       
+            shortcut.Save();
+            File.Delete(path); 
         }
         private void ExitSuccessful()
         {

@@ -103,8 +103,8 @@ namespace AncientPanda_Launcher
 
         private void GetData()
         {
-            var versionData = Get("http://34.105.202.247:3000/animal");
-            var downloadUrlData = Get("http://34.105.202.247:3000/animal/url");
+            var versionData = Get("http://34.105.191.206:3000/animal");
+            var downloadUrlData = Get("http://34.105.191.206:3000/animal/url");
             var version = Regex.Replace(versionData, @"[\""]", "", RegexOptions.None).ToString();
             var downloadUrl = Regex.Replace(downloadUrlData, @"[\""]", "", RegexOptions.None).ToString();
             Constants.onlineZip = downloadUrl;

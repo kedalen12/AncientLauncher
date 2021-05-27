@@ -25,3 +25,11 @@ C:/Users/keda/Documents/GitHub/Launcher/AncientUpdater/AncientUpdater/obj/Releas
 /home/kedalen/Documents/AncientLauncher/AncientUpdater/AncientUpdater/obj/Release/AncientUpdater.csproj.CopyComplete
 /home/kedalen/Documents/AncientLauncher/AncientUpdater/AncientUpdater/obj/Release/AncientUpdater.exe
 /home/kedalen/Documents/AncientLauncher/AncientUpdater/AncientUpdater/obj/Release/AncientUpdater.pdb
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\bin\Release\AncientUpdater.exe
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\bin\Release\AncientUpdater.pdb
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\obj\Release\Interop.IWshRuntimeLibrary.dll
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\obj\Release\AncientUpdater.csproj.ResolveComReference.cache
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\obj\Release\AncientUpdater.csproj.CoreCompileInputs.cache
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\obj\Release\AncientUpdater.exe
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\obj\Release\AncientUpdater.pdb
+C:\Users\opujol\Documents\AncientLauncher\AncientUpdater\AncientUpdater\obj\Release\AncientUpdater.csproj.AssemblyReference.cache

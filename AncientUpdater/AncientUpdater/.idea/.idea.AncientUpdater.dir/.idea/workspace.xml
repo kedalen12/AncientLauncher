@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="de898864-3607-4209-a4b4-57a40360dd2c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Resources/LauncherLogo.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/.idea/.idea.AncientPanda_Launcher/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/.idea/.idea.AncientPanda_Launcher/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/.idea/.idea.AncientPanda_Launcher/.idea/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/AncientPanda_Launcher.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/AncientPanda_Launcher.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/AncientPanda_Launcher.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/AncientPanda_Launcher.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher_MarkupCompile.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher_MarkupCompile.lref" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/AncientPanda_Launcher_MarkupCompile.lref" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/App.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/App.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/App.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/App.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/App.g.i.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/LoginWindow.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/LoginWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/LoginWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/LoginWindow.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/LoginWindow.g.i.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/MainWindow.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/MainWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/MainWindow.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/Release/netcoreapp3.1/MainWindow.g.i.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../AncientPanda_Launcher/AncientPanda_Launcher/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.idea.AncientUpdater/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.AncientUpdater/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.idea.AncientUpdater/.idea/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AncientUpdater.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AncientUpdater.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Release/AncientUpdater.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AncientUpdater.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/AncientUpdater.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AncientUpdater.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/AncientUpdater.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AncientUpdater.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/AncientUpdater.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AncientUpdater.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/AncientUpdater.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/AncientUpdater.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/AncientUpdater.pdb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1t8PP3jIBXxIg8fi3xdAoGiqaPp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1622147718913</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622147718913</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

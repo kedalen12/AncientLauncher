@@ -338,19 +338,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\work\\.nuget\\packages\\": {}
+    "C:\\Users\\opujol\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+      "projectUniqueName": "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
       "projectName": "AncientPanda_Launcher",
-      "projectPath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
-      "packagesPath": "C:\\Users\\work\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
+      "projectPath": "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+      "packagesPath": "C:\\Users\\opujol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\opujol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -411,7 +416,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -420,7 +425,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'EO.WebBrowser 21.0.18' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"EO.WebBrowser 21.0.18\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "EO.WebBrowser",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -430,7 +435,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'EO.WebBrowser.Wpf 21.0.18' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"EO.WebBrowser.Wpf 21.0.18\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "EO.WebBrowser.Wpf",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -440,7 +445,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'FontAwesome.WPF 4.7.0.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"FontAwesome.WPF 4.7.0.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "FontAwesome.WPF",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -450,7 +455,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'WPFCustomMessageBox 1.0.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"WPFCustomMessageBox 1.0.7\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "WPFCustomMessageBox",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {}
+    "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {
+    "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+        "projectUniqueName": "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
         "projectName": "AncientPanda_Launcher",
-        "projectPath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
-        "packagesPath": "C:\\Users\\work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
+        "projectPath": "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+        "packagesPath": "C:\\Users\\opujol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\opujol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,7 +79,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,26 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "hItjvcXbjUuHf0BdPdQE1BbxsDn+Ls9kCXDQT6q9bMU0l1TesNtbBDeRy36eVf0YRpU6NaXxXN4BPIPMqRhjug==",
+  "dgSpecHash": "1IqGHIE0IE5atjbWzjYN6nhus3rCOSC8joxykOc2NR37Jn2sfIB8cRiMSPF8s9aPh+feHkag5bJ6w2dr4WXXVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\work\\Desktop\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
+  "projectFilePath": "C:\\Users\\opujol\\Documents\\AncientLauncher\\AncientPanda_Launcher\\AncientPanda_Launcher\\AncientPanda_Launcher.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\work\\.nuget\\packages\\eo.webbrowser\\21.0.18\\eo.webbrowser.21.0.18.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\eo.webbrowser.wpf\\21.0.18\\eo.webbrowser.wpf.21.0.18.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\flurl\\3.0.1\\flurl.3.0.1.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\flurl.http\\3.0.1\\flurl.http.3.0.1.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
-    "C:\\Users\\work\\.nuget\\packages\\wpfcustommessagebox\\1.0.7\\wpfcustommessagebox.1.0.7.nupkg.sha512"
+    "C:\\Users\\opujol\\.nuget\\packages\\eo.webbrowser\\21.0.18\\eo.webbrowser.21.0.18.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\eo.webbrowser.wpf\\21.0.18\\eo.webbrowser.wpf.21.0.18.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\flurl\\3.0.1\\flurl.3.0.1.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\flurl.http\\3.0.1\\flurl.http.3.0.1.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\opujol\\.nuget\\packages\\wpfcustommessagebox\\1.0.7\\wpfcustommessagebox.1.0.7.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'EO.WebBrowser 21.0.18' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"EO.WebBrowser 21.0.18\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "EO.WebBrowser",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -30,7 +30,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'EO.WebBrowser.Wpf 21.0.18' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"EO.WebBrowser.Wpf 21.0.18\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "EO.WebBrowser.Wpf",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -40,7 +40,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'FontAwesome.WPF 4.7.0.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"FontAwesome.WPF 4.7.0.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "FontAwesome.WPF",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -50,7 +50,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'WPFCustomMessageBox 1.0.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"WPFCustomMessageBox 1.0.7\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "WPFCustomMessageBox",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
